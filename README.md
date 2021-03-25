@@ -32,7 +32,7 @@ $ composer require aaboshamravel-comment
 If you don't use auto-discovery, or using Laravel version < 5.5 Add service provider to your app.php file
 
 ``` php
-\AaboshamravelComment\LaravelCommentServiceProvider::class
+\Aabosham\LaravelComment\LaravelCommentServiceProvider::class
 ```
 
 Publish configurations and migrations, then migrate comments table.
@@ -45,7 +45,7 @@ $ php artisan migrate
 Add `CanComment` trait to your User model.
 
 ``` php
-use AaboshamravelComment\CanComment;
+use Aabosham\LaravelComment\CanComment;
 
 class User extends Model
 {
@@ -59,8 +59,8 @@ class User extends Model
 Add `Commentable` interface and `HasComments` trait to your commentable model(s).
 
 ``` php
-use AaboshamravelComment\Contracts\Commentable;
-use AaboshamravelComment\HasComments;
+use Aabosham\LaravelComment\Contracts\Commentable;
+use Aabosham\LaravelComment\HasComments;
 
 class Product extends Model implements Commentable
 {
@@ -73,7 +73,7 @@ class Product extends Model implements Commentable
 If you want to have your own Comment Model create a new one and extend my Comment model.
 
 ``` php
-use AaboshamravelComment\Models\Comment as LaravelComment;
+use Aabosham\LaravelComment\Models\Comment as LaravelComment;
 
 class Comment extends LaravelComment
 {
