@@ -14,6 +14,7 @@ trait CanComment
         $commentModel = config('comment.model');
 
         $comment = new $commentModel([
+            'uuid'           => \DB::raw('UUID()'),
             'comment'        => $commentText,
             'rate'           => $commentable->canBeRated() ? $rate : null,
             'approved'       => $commentable->mustBeApproved() && !$this->canCommentWithoutApprove() ? false : true,
