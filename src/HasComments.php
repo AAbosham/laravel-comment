@@ -39,7 +39,7 @@ trait HasComments
         }
 
         /** @var Builder $rates */
-        $rates = $this->comments()->approvedComments();
+        $rates = $this->comments()->where('rate','>',0)->approvedComments();
 
         if (!$rates->exists()) {
             return 0;
