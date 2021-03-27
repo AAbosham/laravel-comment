@@ -56,4 +56,19 @@ trait HasComments
 
         return $this->comments()->approvedComments()->count();
     }
+
+    public function totalCommentsCountDigital(): string
+    {
+        $count = $this->totalCommentsCount();
+
+        if($count > (1000 * 1000)){
+            $count_string = ($count / (1000 * 1000)).'M';
+        } else if($count > 1000){
+            $count_string = ($count / 1000).'K';
+        } else {
+            $count_string = $count;
+        }
+
+        return (string) $count_string;
+    }
 }
