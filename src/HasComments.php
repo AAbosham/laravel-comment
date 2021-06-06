@@ -6,6 +6,7 @@ namespace Aabosham\LaravelComment;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
+use App\Models\User;
 
 /**
  * @property Collection $comments
@@ -55,6 +56,10 @@ trait HasComments
         }
 
         return $this->comments()->approvedComments()->count();
+    }
+
+    public function commentBy(){
+        return $this->belongsTo(User::class ,'commented_id');
     }
 
     public function totalCommentsCountDigital(): string
